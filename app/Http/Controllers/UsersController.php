@@ -9,6 +9,6 @@ class UsersController extends Controller
 {
     public function index(){
         $allUsers = User::all();
-        return view('users');
+        return view('users', compact('allUsers'));
     }
 }

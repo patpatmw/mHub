@@ -13,7 +13,7 @@
 
 <div class="container">
   <h2>Users Table</h2>
-           
+     
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -23,21 +23,15 @@
       </tr>
     </thead>
     <tbody>
+ 
+     
+      @foreach($allUsers as $user)
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+        <td>{{$user->name}}</td>
+        <td>{{$user->email}}</td>
+        <td><button type="button" class="btn btn-info">View</button></td>
+    </tr>
+      @endforeach
     </tbody>
   </table>
 </div>
