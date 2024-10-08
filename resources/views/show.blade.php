@@ -10,34 +10,19 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-
-<div class="container">
-  <h2>Users Table</h2>
-     
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
  
-     
-      @foreach($allUsers as $user)
-      <tr>
-        <td>{{$user->name}}</td>
-        <td>{{$user->email}}</td>
-        <td>
-        <a href="{{ route('showuser',$user) }}">
-        <button type="button" class="btn btn-info">View</button>
-        </a>    
-        </td>
-    </tr>
-      @endforeach
-    </tbody>
-  </table>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+        <h2>{{ $user->name }}</h2>
+        <h2>{{ $user->email }}</h2>
+        <div class="card">
+        
+    </div>
+        </div>
+        
+ 
+
 </div>
 
 </body>
