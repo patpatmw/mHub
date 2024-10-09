@@ -13,9 +13,24 @@
  
 <div class="container">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6">
         <h2>{{ $user->name }}</h2>
         <h2>{{ $user->email }}</h2>
+        <div class="row">
+        <div class="col-lg-6">
+        <a href="{{ route('edituser',$user) }}"><button type="submit" class="btn btn-primary">Edit</button>
+        </a>
+        </div> 
+        <div class="col-lg-6">
+        
+       <form action="{{route('deleteuser', $user)}}" method="POST">
+        @csrf
+        @method("delete")
+       <button type="submit" class="btn btn-danger">delete</button>
+       </form>
+        
+        </div>
+        </div>
         <div class="card">
         
     </div>

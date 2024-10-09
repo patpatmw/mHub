@@ -12,7 +12,7 @@
 <body>
 
 <div class="container">
-  <h2>Users Table</h2>
+  <h2>Users Table {{$allUsers->count()}}</h2>
      
   <table class="table table-bordered">
     <thead>
@@ -32,7 +32,10 @@
         <td>
         <a href="{{ route('showuser',$user) }}">
         <button type="button" class="btn btn-info">View</button>
-        </a>    
+        </a>
+        <a href="{{ route('edituser',$user) }}">
+        <button type="button" class="btn btn-secondary">edit</button>
+        </a>     
         </td>
     </tr>
       @endforeach
