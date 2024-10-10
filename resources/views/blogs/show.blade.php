@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Blogs</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -16,7 +16,7 @@
         <div class="col-lg-6">
         <h2>{{ $allblogs->title }}</h2>
         <h2>{{ $allblogs->description }}</h2>
-        <h2>{{ $allblogs->image }}</h2>
+        <h2>{{ $allblogs->image}}</h2>
         <div class="row">
         <div class="col-lg-6">
         <a href="{{ route('edituser',$user) }}"><button type="submit" class="btn btn-primary">Edit</button>
@@ -24,7 +24,7 @@
         </div> 
         <div class="col-lg-6">
         
-       <form action="{{route('deleteuser', $user)}}" method="POST">
+       <form action="{{route('deleteblog', $allblogs)}}" method="POST">
         @csrf
         @method("delete")
        <button type="submit" class="btn btn-danger">delete</button>
