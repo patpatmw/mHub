@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\BlogController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::view('/', 'welcome');
 
 Auth::routes();
 
@@ -18,7 +19,10 @@ Route::get('edituser/detail/{id}',[UsersController::class, 'edit'])->name('editu
 Route::put('updateuser/detail/{id}',[UsersController::class, 'update'])->name('updateuser');
 Route::delete('deleteuser/detail/{id}',[UsersController::class, 'delete'])->name('deleteuser');
 Route::get('createblog',[BlogController::class, 'create'])->name('createblog');
-Route::get('showblog',[BlogController::class, 'show'])->name('showblog');
+
 Route::post('storeblog',[BlogController::class, 'store'])->name('storeblog');
 Route::get('allblogs',[BlogController::class, 'index'])->name('allblogs');
+Route::get('singleblog/{blog}', [BlogController::class, 'show'])->name('showblog');
+Route::get('editblog/{blog}', [BlogController::class, 'edit'])->name('editblog');
+Route::put('updateblog/{blog}',[BlogController::class, 'update'])->name('updateblog');
 

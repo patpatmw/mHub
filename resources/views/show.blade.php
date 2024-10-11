@@ -14,9 +14,8 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6">
-        <h2>{{ $allblogs->title }}</h2>
-        <h2>{{ $allblogs->description }}</h2>
-        <h2>{{ $allblogs->image }}</h2>
+        <h2>{{ $user->name }}</h2>
+        <h2>{{ $user->email }}</h2>
         <div class="row">
         <div class="col-lg-6">
         <a href="{{ route('edituser',$user) }}"><button type="submit" class="btn btn-primary">Edit</button>

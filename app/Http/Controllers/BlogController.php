@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
 
@@ -45,23 +46,37 @@ class BlogController extends Controller
     public function show(Blog $blog)
     {
         //
-        dd($blog->all());
+       // dd($blog);
+       $allblogs = Blog::all();
+       return view('blogs.edit');
+
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blog $blog)
+    public function edit( $id)
     {
         //
+        $blog = Blog::find($id);
+        return view('blogs.edit',compact('blog'));
+
+       
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBlogRequest $request, Blog $blog)
+    public function update($id, Request $request)
     {
         //
+        $blog = Blog::find($id);
+        $blog->title = $request->title;
+        $blog->description = $request->description;
+        $blog->image = $request->image;
+        $blog->save();
+
+        return redirect()->route("allblogs");
     }
 
     /**
@@ -74,9 +89,9 @@ class BlogController extends Controller
 
     private function validateRequest(){
         return request()->validate([  
-            'title'=>'required',
-            'description'=>'required',
-            'image'=>'required',
+            'title'=>'required|email',
+            'description'=>'required|min:100',
+            'image'=>'',
         ]);
     }
 }

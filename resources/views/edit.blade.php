@@ -13,16 +13,20 @@
 
 <div class="container">
   
-  <form method="POST" action="{{ route('updateuser', $user->id) }}">
+  <form method="POST" action="{{ route('updateblog', $blog->id) }}">
     @csrf   
     @method('PUT')
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" value="{{$user->email}}" class="form-control" id="email" placeholder="Enter email" name="email">
+      <input type="email" value="{{$blog->title}}" class="form-control" id="email" placeholder="Enter email" name="title">
     </div>
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" value="{{$user->name}}" class="form-control" id="name" placeholder="Enter name" name="name">
+      <input type="text" value="{{$blog->description}}" class="form-control" id="name" placeholder="Enter name" name="description">
+    </div>
+    <div class="form-group">
+      <label for="image">Name:</label>
+      <input type="text" value="{{$blog->image}}" class="form-control" id="name" placeholder="Enter name" name="image">
     </div>
     
     

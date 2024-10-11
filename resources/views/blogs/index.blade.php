@@ -24,16 +24,24 @@
         <th>Title</th>
         <th>Description</th>
         <th>Image</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
  
-     
+ 
       @foreach($allblogs as $blog)
       <tr>
         <td>{{$blog->title}}</td>
         <td>{{$blog->description}}</td>
         <td>{{$blog->image}}</td>
+        <td><a href="{{ route('showblog',$blog) }}">
+        <button type="button" class="btn btn-secondary">Show</button>
+        </a>
+        <a href="{{ route('editblog',$blog) }}">
+        <button type="button" class="btn btn-primary">Edit</button>
+        </a>
+        
         
       @endforeach
     </tbody>
